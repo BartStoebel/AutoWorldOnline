@@ -13,7 +13,7 @@ import java.util.Objects;
  * @author frank.roelants
  */
 public class Nummerplaat implements Serializable, Comparable<Nummerplaat>{
-    private static long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
     private final String plaat;
 
     Nummerplaat(String plaat) {
