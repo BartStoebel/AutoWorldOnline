@@ -19,6 +19,12 @@ public class Mens implements Serializable, Comparable<Mens>{
     private String naam;
     private Set<Rijbewijs> rijbewijs;
     
+    /**
+     * Ik had eerst een Exception gethrowed bij een setNaam, die geen naam zou 
+     * bevatten. Dit wordt nu niet opgevangen. Het object wordt toch gemaakt!
+     * Indien ik het wel implementeer, krijg ik een foutmelding van de foutenmodule
+     * @param naam 
+     */
     public Mens(String naam) {
         setNaam(naam);
         this.rijbewijs = new TreeSet<>();
@@ -119,10 +125,18 @@ public class Mens implements Serializable, Comparable<Mens>{
         return naam;
     }
 
+    /**
+     * Hier zou ik een Exception throwen, maar dit is niet toegelaten door de 
+     * testmodule ... Een foutboodschap wordt weergegeven.
+     * @param naam 
+     */
     public final void setNaam(String naam) {
         if (naam != null && !naam.isEmpty()){
             this.naam = naam;
-        } 
+        } else{
+            System.err.println("De mens moet verplicht een naam hebben!! Dit"
+                    + "kan niet worden afgedwongen door de testmodule!");
+        }
     }
 
     public Rijbewijs[] getRijbewijs() {

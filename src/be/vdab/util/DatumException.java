@@ -10,8 +10,7 @@ package be.vdab.util;
  * @author Vinnie
  */
 public class DatumException extends java.lang.Exception{
-    private String error;
-    
+        
     public DatumException(){
         
     }
