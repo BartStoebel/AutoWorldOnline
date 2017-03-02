@@ -15,7 +15,11 @@ import java.util.Objects;
 public class Nummerplaat implements Serializable, Comparable<Nummerplaat>{
     private static final long serialVersionUID = 1L;
     private final String plaat;
-
+    
+    /**
+     * Default visibility. Creation of object only by DIV.getNummerplaat()
+     * @param plaat the String for plaat
+     */
     Nummerplaat(String plaat) {
         this.plaat = plaat;
     }
