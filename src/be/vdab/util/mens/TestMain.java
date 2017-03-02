@@ -5,6 +5,7 @@
  */
 package be.vdab.util.mens;
 
+import static be.vdab.util.mens.Rijbewijs.*; 
 /**
  *
  * @author Vinnie
@@ -15,8 +16,17 @@ public class TestMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Rijbewijs rijbewijsa = Rijbewijs.BE;
-        System.out.println(rijbewijsa);
+        
+        
+        try{
+            Mens a = new Mens("Bart", B, BE, C, CE);
+            System.out.println(a);
+            System.out.println(a.equals(a));
+        
+        }catch (Exception e){
+            System.out.println(e.toString());
+        }
+        
     }
     
 }
