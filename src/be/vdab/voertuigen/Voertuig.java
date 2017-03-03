@@ -197,7 +197,8 @@ public abstract class Voertuig implements Comparable<Voertuig>, Serializable{
             //nieuwe bestuurder zit al bij de passagiers ... maar wordt toegevoegd als bestuurder
             List<Rijbewijs> bestuurderRijbewijzen = Arrays.asList(bestuurder.getRijbewijs());
             // GA HIER VERDER!!! COPY BEIDE ARRAYS IN 1 EN KIJK OF ER DUBBELS INZITTEN!
-            Rijbewijs[] alleRijbewijzen = Arrays.
+            
+            //Rijbewijs[] alleRijbewijzen = Arrays.
             if (passagiers.contains(bestuurder) && bestuurderRijbewijzen.contains(getToegestaneRijbewijzen())){  
                 passagiers.remove(bestuurder);
                 
