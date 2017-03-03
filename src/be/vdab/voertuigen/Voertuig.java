@@ -15,11 +15,11 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -29,12 +29,11 @@ public abstract class Voertuig implements Comparable<Voertuig>, Serializable{
     private String merk;
     private Datum DatumEersteIngebruikname;
     private int aankoopprijs;
-    private int zitplaatsen;
+    private final int zitplaatsen; // totaal aantal, bestuurdersplaats inbegrepen!
     private Set<Mens> passagiers;  // zonder bestuurder! laatst toegevoegde is: (Mens)inzittenden.toArray()[inzittenden.size()-1]
     
     private Mens bestuurder;
     
-    private  int MAX_ZITPLAATSEN;
     private Rijbewijs[] rijbewijs;
     
     //Nummerplaat wordt aangemaakt:
@@ -50,15 +49,20 @@ public abstract class Voertuig implements Comparable<Voertuig>, Serializable{
         setMerk(merk);
         setDatumEersteIngebruikname(DatumEersteIngebruikname);
         setAankoopprijs(aankoopprijs);
-        setZitplaatsen(zitplaatsen);
+        try{
+            if (zitplaatsen>0 && zitplaatsen <= getMAX_ZITPLAATSEN()){
+                this.zitplaatsen = zitplaatsen;
+            }else {
+                this.zitplaatsen = 5/0;  // fout genereren
+            }
+         }catch (ArithmeticException e){
+             throw new IllegalArgumentException ("Aantal zitplaatsen kan niet negatief zijn.");
+         }
         try{
             setPassagiers(passagiers);
         }catch (MensException ex){
             ex.getMessage();
         }
-        
-       
-              
         setBestuurder(bestuurder);
         NUMMERPLAAT = DIV.getNummerplaat();
     }
@@ -137,16 +141,8 @@ public abstract class Voertuig implements Comparable<Voertuig>, Serializable{
     public int getZitplaatsen() {
         return zitplaatsen;
     }
-    public void setZitplaatsen(int zitplaatsen) {
-         try{
-            if (zitplaatsen>0){
-                this.zitplaatsen = zitplaatsen;
-            }else {
-                this.zitplaatsen = 5/0;  // fout genereren
-            }
-         }catch (ArithmeticException e){
-             throw new IllegalArgumentException ("Aantal zitplaatsen kan niet negatief zijn.");
-         }
+    public final void setZitplaatsen(int zitplaatsen) {
+         
     }
     
     public void setPassagiers(Mens ... passagiers) throws MensException{
@@ -162,13 +158,9 @@ public abstract class Voertuig implements Comparable<Voertuig>, Serializable{
         }
     }
     
-    protected int getMAX_ZITPLAATSEN(){
-        return MAX_ZITPLAATSEN;
-    }
+    protected abstract int getMAX_ZITPLAATSEN();
     
-    protected Rijbewijs[] getToegestaneRijbewijzen() {
-        return new Rijbewijs[]{Rijbewijs.B, Rijbewijs.BE};
-    }
+    protected abstract Rijbewijs[] getToegestaneRijbewijzen() ;
        
     
 
@@ -181,6 +173,11 @@ public abstract class Voertuig implements Comparable<Voertuig>, Serializable{
         inzittenden.add(bestuurder);
         return inzittenden;
     }
+    
+    public Set<Mens> getIngezeteneExclusiefBestuurder(){
+        Set<Mens> inzittenden = new LinkedHashSet<Mens>(passagiers);
+        return inzittenden;
+    }
 
     public Mens getBestuurder() {
         return bestuurder;
@@ -188,16 +185,24 @@ public abstract class Voertuig implements Comparable<Voertuig>, Serializable{
     
     // dit is de setBestuurder ...
     public void addIngezetene(Mens bestuurder) /*throws MensException*/ {
+        //er is nog geen bestuurder: aanroep vanuit constructor
         if (this.bestuurder == null){
             if (bestuurder == null){
                 throw new IllegalArgumentException("Er is geen bestuurder aanwezig");
             } else {
                 this.bestuurder = bestuurder;
             }
+        // er is al een bestuurder: aanroep om nieuwe bestuurder te zetten, of passagier toe te voegen:    
         } else {
-            if (passagiers.contains(bestuurder)){  //nieuwe bestuurder zit al bij de passagiers ... maar wordt bestuurder
+            //nieuwe bestuurder zit al bij de passagiers ... maar wordt toegevoegd als bestuurder
+            List<Rijbewijs> bestuurderRijbewijzen = Arrays.asList(bestuurder.getRijbewijs());
+            // GA HIER VERDER!!! COPY BEIDE ARRAYS IN 1 EN KIJK OF ER DUBBELS INZITTEN!
+            Rijbewijs[] alleRijbewijzen = Arrays.
+            if (passagiers.contains(bestuurder) && bestuurderRijbewijzen.contains(getToegestaneRijbewijzen())){  
                 passagiers.remove(bestuurder);
+                
             }
+            
             if (passagiers.size()< zitplaatsen -1){
                 passagiers.add(this.bestuurder);
             } else {
@@ -233,10 +238,7 @@ public abstract class Voertuig implements Comparable<Voertuig>, Serializable{
 
 
 
-    public Set<Mens> getIngezeteneExclusiefBestuurder (){
-        return passagiers;
-    }
-      
+          
     public static Comparator<Voertuig> getAankoopprijsComparator() {
         return vergelijkAankoopprijs;
     }
