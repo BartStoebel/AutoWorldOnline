@@ -30,7 +30,7 @@ public class NummerplaatTest {
   public void test_Nummerplaat_getPlaat() {
     final String plaat = "AAA007";
     Nummerplaat np = new Nummerplaat(plaat);
-    assertEquals(np.getPlaat(), plaat);
+    assertEquals(np.getPLAAT(), plaat);
   }
 
   @Test

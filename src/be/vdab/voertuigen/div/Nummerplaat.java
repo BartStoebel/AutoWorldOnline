@@ -14,24 +14,27 @@ import java.util.Objects;
  */
 public class Nummerplaat implements Serializable, Comparable<Nummerplaat>{
     private static final long serialVersionUID = 1L;
-    private final String plaat;
+    private final String PLAAT;
     
     /**
      * Default visibility. Creation of object only by DIV.getNummerplaat()
-     * @param plaat the String for plaat
+     * @param plaat the String for PLAAT
      */
     Nummerplaat(String plaat) {
-        this.plaat = plaat;
+        this.PLAAT = plaat;
     }
 
+    public String getPLAAT() {
+        return PLAAT;
+    }
     public String getPlaat() {
-        return plaat;
+        return PLAAT;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.plaat);
+        hash = 59 * hash + Objects.hashCode(this.PLAAT);
         return hash;
     }
 
@@ -47,7 +50,7 @@ public class Nummerplaat implements Serializable, Comparable<Nummerplaat>{
             return false;
         }
         final Nummerplaat other = (Nummerplaat) obj;
-        if (!Objects.equals(this.plaat, other.plaat)) {
+        if (!Objects.equals(this.PLAAT, other.PLAAT)) {
             return false;
         }
         return true;
@@ -55,12 +58,12 @@ public class Nummerplaat implements Serializable, Comparable<Nummerplaat>{
 
     @Override
     public String toString() {
-        return plaat;
+        return PLAAT;
     }
 
     @Override
     public int compareTo(Nummerplaat o) {
-        return plaat.compareTo(o.plaat);
+        return PLAAT.compareTo(o.PLAAT);
     }
 
     

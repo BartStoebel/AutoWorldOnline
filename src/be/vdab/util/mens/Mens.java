@@ -66,7 +66,7 @@ public class Mens implements Serializable, Comparable<Mens>{
     public String toString() {
         String rij = "";
         for(Rijbewijs r : getRijbewijs()){
-            rij = rij + ", " + r.getRijbewijs();
+            rij = rij + ", " + r.getRIJBEWIJS();
         }
         if (rij.isEmpty()){
             return naam;

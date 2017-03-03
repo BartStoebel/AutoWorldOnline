@@ -17,16 +17,16 @@ import java.time.format.DateTimeFormatter;
 public class Datum implements Comparable<Datum>, Serializable{
     private static final long serialVersionUID = 1L;
     
-    private final int dag;
-    private final int maand;
-    private final int jaar;
+    private final int DAG;
+    private final int MAAND;
+    private final int JAAR;
     
     private final LocalDate datum;
     
     /**
      * Creëer een nieuwe immutable datum tussen 01/01/1583 en 31/12/4099
-     * @param dag int dag van de maand
-     * @param maand int maand
+     * @param dag int DAG van de MAAND
+     * @param maand int MAAND
      * @param jaar int jaartal
      */
     public Datum(int dag, int maand, int jaar) throws DatumException{
@@ -41,9 +41,9 @@ public class Datum implements Comparable<Datum>, Serializable{
             throw new DatumException ("De datum is niet correct. Geef een geldige"
                     + " dag, maand en jaar in!" + ex.getMessage());
         }
-        this.dag = dag;
-        this.maand = maand;
-        this.jaar = jaar;
+        this.DAG = dag;
+        this.MAAND = maand;
+        this.JAAR = jaar;
     }
 
     /**
@@ -77,9 +77,9 @@ public class Datum implements Comparable<Datum>, Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 47 * hash + this.dag;
-        hash = 47 * hash + this.maand;
-        hash = 47 * hash + this.jaar;
+        hash = 47 * hash + this.DAG;
+        hash = 47 * hash + this.MAAND;
+        hash = 47 * hash + this.JAAR;
         return hash;
     }
 
@@ -88,15 +88,15 @@ public class Datum implements Comparable<Datum>, Serializable{
         return datum.compareTo(o.datum);
     }
     
-    public int getDag() {
-        return dag;
+    public int getDAG() {
+        return DAG;
     }
 
-    public int getMaand() {
-        return maand;
+    public int getMAAND() {
+        return MAAND;
     }
 
-    public int getJaar() {
-        return jaar;
+    public int getJAAR() {
+        return JAAR;
     }
 }

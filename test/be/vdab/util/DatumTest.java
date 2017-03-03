@@ -50,33 +50,33 @@ public class DatumTest {
     public void test_Datum_getDag() throws DatumException {
         for (int teller = 1; teller <= 31; teller++) {
             Datum d = new Datum(teller, 1, 1910);
-            assertTrue(d.getDag() == teller);
+            assertTrue(d.getDAG() == teller);
             d = new Datum(teller, 3, 1910);
-            assertTrue(d.getDag() == teller);
+            assertTrue(d.getDAG() == teller);
             d = new Datum(teller, 5, 1910);
-            assertTrue(d.getDag() == teller);
+            assertTrue(d.getDAG() == teller);
             d = new Datum(teller, 7, 1910);
-            assertTrue(d.getDag() == teller);
+            assertTrue(d.getDAG() == teller);
             d = new Datum(teller, 8, 1910);
-            assertTrue(d.getDag() == teller);
+            assertTrue(d.getDAG() == teller);
             d = new Datum(teller, 10, 1910);
-            assertTrue(d.getDag() == teller);
+            assertTrue(d.getDAG() == teller);
             d = new Datum(teller, 12, 1910);
-            assertTrue(d.getDag() == teller);
+            assertTrue(d.getDAG() == teller);
         }
         for (int teller = 1; teller <= 30; teller++) {
             Datum d = new Datum(teller, 4, 1910);
-            assertTrue(d.getDag() == teller);
+            assertTrue(d.getDAG() == teller);
             d = new Datum(teller, 6, 1910);
-            assertTrue(d.getDag() == teller);
+            assertTrue(d.getDAG() == teller);
             d = new Datum(teller, 9, 1910);
-            assertTrue(d.getDag() == teller);
+            assertTrue(d.getDAG() == teller);
             d = new Datum(teller, 11, 1910);
-            assertTrue(d.getDag() == teller);
+            assertTrue(d.getDAG() == teller);
         }
         for (int teller = 1; teller <= 28; teller++) {
             Datum d = new Datum(teller, 2, 1910);
-            assertTrue(d.getDag() == teller);
+            assertTrue(d.getDAG() == teller);
         }
     }
 
@@ -84,7 +84,7 @@ public class DatumTest {
     public void test_Datum_getMaand() throws DatumException {
         for (int teller = 1; teller <= 12; teller++) {
             Datum d = new Datum(10, teller, 1910);
-            assertTrue(d.getMaand() == teller);
+            assertTrue(d.getMAAND() == teller);
         }
     }
 
@@ -92,7 +92,7 @@ public class DatumTest {
     public void test_Datum_getJaar() throws DatumException {
         for (int teller = 1984; teller < 4100; teller++) {
             Datum d = new Datum(10, 10, teller);
-            assertTrue(d.getJaar() == teller);
+            assertTrue(d.getJAAR() == teller);
         }
     }
 
@@ -204,9 +204,9 @@ public class DatumTest {
     public void test_28_februari_geen_schrikkeljaar() throws DatumException {
         Datum d = new Datum(28, 2, 1903);
         assertNotNull(d);
-        assertEquals(d.getDag(), 28);
-        assertEquals(d.getMaand(), 2);
-        assertEquals(d.getJaar(), 1903);
+        assertEquals(d.getDAG(), 28);
+        assertEquals(d.getMAAND(), 2);
+        assertEquals(d.getJAAR(), 1903);
     }
 
     @Test(expected = be.vdab.util.DatumException.class)
@@ -228,17 +228,17 @@ public class DatumTest {
     public void test_28_februari_schrikkeljaar() throws DatumException {
         Datum d = new Datum(28, 2, 1904);
         assertNotNull(d);
-        assertEquals(d.getDag(), 28);
-        assertEquals(d.getMaand(), 2);
-        assertEquals(d.getJaar(), 1904);
+        assertEquals(d.getDAG(), 28);
+        assertEquals(d.getMAAND(), 2);
+        assertEquals(d.getJAAR(), 1904);
     }
 
     @Test
     public void test_29_februari_schrikkeljaar() throws DatumException {
         Datum d = new Datum(29, 2, 1904);
-        assertEquals(d.getDag(), 29);
-        assertEquals(d.getMaand(), 2);
-        assertEquals(d.getJaar(), 1904);
+        assertEquals(d.getDAG(), 29);
+        assertEquals(d.getMAAND(), 2);
+        assertEquals(d.getJAAR(), 1904);
     }
 
     @Test(expected = be.vdab.util.DatumException.class)
@@ -255,9 +255,9 @@ public class DatumTest {
     public void test_28_februari_geen_schrikkeljaar_100() throws DatumException {
         Datum d = new Datum(28, 2, 1900);
         assertNotNull(d);
-        assertEquals(d.getDag(), 28);
-        assertEquals(d.getMaand(), 2);
-        assertEquals(d.getJaar(), 1900);
+        assertEquals(d.getDAG(), 28);
+        assertEquals(d.getMAAND(), 2);
+        assertEquals(d.getJAAR(), 1900);
     }
 
     @Test(expected = be.vdab.util.DatumException.class)
@@ -279,17 +279,17 @@ public class DatumTest {
     public void test_28_februari_schrikkeljaar_400() throws DatumException {
         Datum d = new Datum(28, 2, 1600);
         assertNotNull(d);
-        assertEquals(d.getDag(), 28);
-        assertEquals(d.getMaand(), 2);
-        assertEquals(d.getJaar(), 1600);
+        assertEquals(d.getDAG(), 28);
+        assertEquals(d.getMAAND(), 2);
+        assertEquals(d.getJAAR(), 1600);
     }
 
     @Test
     public void test_29_februari_schrikkeljaar_400() throws DatumException {
         Datum d = new Datum(29, 2, 1600);
-        assertEquals(d.getDag(), 29);
-        assertEquals(d.getMaand(), 2);
-        assertEquals(d.getJaar(), 1600);
+        assertEquals(d.getDAG(), 29);
+        assertEquals(d.getMAAND(), 2);
+        assertEquals(d.getJAAR(), 1600);
     }
 
     @Test(expected = be.vdab.util.DatumException.class)
@@ -376,9 +376,9 @@ public class DatumTest {
             Object o = ois.readObject();
             Datum copy = (Datum) o;
             assertEquals(origineel, copy);
-            assertTrue(copy.getDag() == DAG);
-            assertTrue(copy.getMaand() == MAAND);
-            assertTrue(copy.getJaar() == JAAR);
+            assertTrue(copy.getDAG() == DAG);
+            assertTrue(copy.getMAAND() == MAAND);
+            assertTrue(copy.getJAAR() == JAAR);
         }
         {
             final int DAG = 1;
@@ -395,9 +395,9 @@ public class DatumTest {
             Object o = ois.readObject();
             Datum copy = (Datum) o;
             assertEquals(origineel, copy);
-            assertTrue(copy.getDag() == DAG);
-            assertTrue(copy.getMaand() == MAAND);
-            assertTrue(copy.getJaar() == JAAR);
+            assertTrue(copy.getDAG() == DAG);
+            assertTrue(copy.getMAAND() == MAAND);
+            assertTrue(copy.getJAAR() == JAAR);
         }
         {
             final int DAG = 31;
@@ -414,9 +414,9 @@ public class DatumTest {
             Object o = ois.readObject();
             Datum copy = (Datum) o;
             assertEquals(origineel, copy);
-            assertTrue(copy.getDag() == DAG);
-            assertTrue(copy.getMaand() == MAAND);
-            assertTrue(copy.getJaar() == JAAR);
+            assertTrue(copy.getDAG() == DAG);
+            assertTrue(copy.getMAAND() == MAAND);
+            assertTrue(copy.getJAAR() == JAAR);
         }
         {
             final int DAG = 31;
@@ -433,9 +433,9 @@ public class DatumTest {
             Object o = ois.readObject();
             Datum copy = (Datum) o;
             assertEquals(origineel, copy);
-            assertTrue(copy.getDag() == DAG);
-            assertTrue(copy.getMaand() == MAAND);
-            assertTrue(copy.getJaar() == JAAR);
+            assertTrue(copy.getDAG() == DAG);
+            assertTrue(copy.getMAAND() == MAAND);
+            assertTrue(copy.getJAAR() == JAAR);
         }
         for (int JAAR = 1600; JAAR < 1700; JAAR += 4) {
             final int DAG = 29;
@@ -451,9 +451,9 @@ public class DatumTest {
             Object o = ois.readObject();
             Datum copy = (Datum) o;
             assertEquals(origineel, copy);
-            assertTrue(copy.getDag() == DAG);
-            assertTrue(copy.getMaand() == MAAND);
-            assertTrue(copy.getJaar() == JAAR);
+            assertTrue(copy.getDAG() == DAG);
+            assertTrue(copy.getMAAND() == MAAND);
+            assertTrue(copy.getJAAR() == JAAR);
         }
     }
 
