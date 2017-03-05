@@ -25,7 +25,7 @@ public class Personenwagen extends Voertuig{
     public Personenwagen(String merk, Datum DatumEersteIngebruikname, int aankoopprijs,
             int zitplaatsen, Mens bestuurder, Mens...passagiers){
         
-        super(merk, DatumEersteIngebruikname, aankoopprijs, zitplaatsen, bestuurder, passagiers);
+        super(8, merk, DatumEersteIngebruikname, aankoopprijs, zitplaatsen, bestuurder, passagiers);
             
 
     }

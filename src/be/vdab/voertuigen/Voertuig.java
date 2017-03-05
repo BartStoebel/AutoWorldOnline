@@ -45,28 +45,49 @@ public abstract class Voertuig implements Comparable<Voertuig>, Serializable{
 
     
     public Voertuig(String merk, Datum DatumEersteIngebruikname, int aankoopprijs,
-            int zitplaatsen, Mens bestuurder, Mens...passagiers) {
+            int zitplaatsen, Mens bestuurder, Mens...passagiers)  {
         setMerk(merk);
         setDatumEersteIngebruikname(DatumEersteIngebruikname);
         setAankoopprijs(aankoopprijs);
-        try{
+        
             if (zitplaatsen>0 && zitplaatsen <= getMAX_ZITPLAATSEN()){
                 this.zitplaatsen = zitplaatsen;
             }else {
-                this.zitplaatsen = 5/0;  // fout genereren
+                throw new IllegalArgumentException ("Aantal zitplaatsen kan niet negatief zijn.");
+                //this.zitplaatsen = 5/0;  // fout genereren
             }
-         }catch (ArithmeticException e){
-             throw new IllegalArgumentException ("Aantal zitplaatsen kan niet negatief zijn.");
-         }
         try{
             setPassagiers(passagiers);
         }catch (MensException ex){
-            ex.getMessage();
+            ex.printStackTrace();
+            throw ex;
         }
         setBestuurder(bestuurder);
         NUMMERPLAAT = DIV.getNummerplaat();
     }
 
+     public Voertuig(int max, String merk, Datum DatumEersteIngebruikname, int aankoopprijs,
+            int zitplaatsen, Mens bestuurder, Mens...passagiers)  {
+        setMerk(merk);
+        setDatumEersteIngebruikname(DatumEersteIngebruikname);
+        setAankoopprijs(aankoopprijs);
+        
+            if (zitplaatsen>0 && zitplaatsen <= getMAX_ZITPLAATSEN()){
+                this.zitplaatsen = zitplaatsen;
+            }else {
+                throw new IllegalArgumentException ("Aantal zitplaatsen kan niet negatief zijn.");
+                //this.zitplaatsen = 5/0;  // fout genereren
+            }
+        try{
+            setPassagiers(passagiers);
+        }catch (MensException ex){
+            ex.printStackTrace();
+            throw ex;
+        }
+        setBestuurder(bestuurder);
+        NUMMERPLAAT = DIV.getNummerplaat();
+    }
+     
     @Override
     public int hashCode() {
         int hash = 3;
@@ -213,7 +234,7 @@ public abstract class Voertuig implements Comparable<Voertuig>, Serializable{
         }
     }
 
-    public void setBestuurder(Mens bestuurder) /*throws MensException*/ {
+    public void setBestuurder(Mens bestuurder) throws MensException {
         if (this.bestuurder == null){
             if (bestuurder == null){
                 new IllegalArgumentException("Er is geen bestuurder aanwezig");
@@ -227,7 +248,7 @@ public abstract class Voertuig implements Comparable<Voertuig>, Serializable{
             if (passagiers.size()< zitplaatsen -1){
                 passagiers.add(this.bestuurder);
             } else {
-                new MensException("Het voertuig heeft reeds het maximum aantal ingezetenen bereikt!");
+                throw new MensException("Het voertuig heeft reeds het maximum aantal ingezetenen bereikt!");
             }
             this.bestuurder = bestuurder;
         }
