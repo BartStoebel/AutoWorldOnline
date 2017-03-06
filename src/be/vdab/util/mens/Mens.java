@@ -6,6 +6,8 @@
 package be.vdab.util.mens;
 
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -29,37 +31,11 @@ public class Mens implements Serializable, Comparable<Mens>{
         setNaam(naam);
         this.rijbewijs = new TreeSet<>();
     }
-    public Mens(String naam, Rijbewijs r)  {
+    public Mens(String naam, Rijbewijs ... r)  {
         this(naam) ;
-        this.rijbewijs.add(r);
-    }
-    public Mens(String naam, Rijbewijs r, Rijbewijs r1)  {
-        this(naam, r);
-        this.rijbewijs.add(r1);
-    }
-    public Mens(String naam, Rijbewijs r, Rijbewijs r1, Rijbewijs r2)  {
-        this(naam, r, r1);
-        this.rijbewijs.add(r2);
-    }
-    public Mens(String naam, Rijbewijs r, Rijbewijs r1, Rijbewijs r2, 
-            Rijbewijs r3)  {
-        this(naam, r, r1, r2);
-        this.rijbewijs.add(r3);
-    }
-    public Mens(String naam, Rijbewijs r, Rijbewijs r1, Rijbewijs r2, 
-            Rijbewijs r3, Rijbewijs r4)  {
-        this(naam, r, r1, r2, r3);
-        this.rijbewijs.add(r4);
-    }
-    public Mens(String naam, Rijbewijs r, Rijbewijs r1, Rijbewijs r2, 
-            Rijbewijs r3, Rijbewijs r4, Rijbewijs r5)  {
-        this(naam, r, r1, r2, r3, r4);
-        this.rijbewijs.add(r5);
-    }
-    public Mens(String naam, Rijbewijs r, Rijbewijs r1, Rijbewijs r2, 
-            Rijbewijs r3, Rijbewijs r4, Rijbewijs r5, Rijbewijs r6) {
-        this(naam, r, r1, r2, r3, r4, r5);
-        this.rijbewijs.add(r6);
+        if(r != null){
+            this.rijbewijs.addAll(Arrays.asList(r));
+        }
     }
 
     @Override
