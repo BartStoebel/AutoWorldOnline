@@ -85,7 +85,8 @@ public class Mens implements Serializable, Comparable<Mens>{
     
     /**
      * Hier twijfel ik of Rijbewijs moet opgenomen worden! Naam zou theoretisch 
-     * uniet moeten zijn ... rijbewijs kan veranderen in loop van de tijd!
+     * uniek moeten zijn ... rijbewijs kan veranderen in loop van de tijd!
+     * ->In de testen lijkt het dat op beide getest moet worden!!
      * @param obj
      * @return 
      */
@@ -104,9 +105,9 @@ public class Mens implements Serializable, Comparable<Mens>{
         if (!Objects.equals(this.naam, other.naam)) {
             return false;
         }
-//        if (!Objects.equals(this.rijbewijs, other.rijbewijs)) {
-//            return false;
-//        }
+        if (!Objects.equals(this.rijbewijs, other.rijbewijs)) {
+            return false;
+        }
         return true;
     }
 

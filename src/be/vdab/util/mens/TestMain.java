@@ -8,6 +8,7 @@ package be.vdab.util.mens;
 import be.vdab.util.Datum;
 import be.vdab.util.DatumException;
 import static be.vdab.util.mens.Rijbewijs.*; 
+import be.vdab.voertuigen.Personenwagen;
 import be.vdab.voertuigen.Voertuig;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -24,41 +25,36 @@ public class TestMain {
     public static void main(String[] args) {
         
         
-//        
-//        Datum datum;
-//        try{
-//            Mens a = new Mens("Bart", B, BE, C, CE);
-//            Mens b = new Mens("Eva",A);
-//            Mens c = new Mens ("Ruben");
-//            System.out.println(a);
-//            System.out.println(a.equals(a));
-//            datum = new Datum(2, 2, 2017);
-//            
-//            Voertuig v = new Voertuig("Toyota", datum, 20000, 5, a, b, c);
-//            Voertuig v1 = new Voertuig("Saab", datum, 2100, 2, a, b, c);
-//            Voertuig v2 = new Voertuig("Alfa", datum, 200000, 4, a, b, c);
-//            Voertuig v3 = new Voertuig("Honda", datum, 20000, 4, a, b, c);
-//            List<Voertuig> lijst = new ArrayList<>();
-//            lijst.add(v);
-//            lijst.add(v1);
-//            lijst.add(v2);
-//            lijst.add(v3);
-//            
-//            Collections.sort(lijst , Voertuig.getMerkComparator());
-//            System.out.println("Merk is alfabetisch: ");
+        
+        Datum datum;
+        try{
+            Mens a = new Mens("Ammelie", B, BE, C, CE);
+            Mens b = new Mens("Eva",A, B);
+            Mens c = new Mens ("Ruben");
+            //System.out.println(a);
+            //System.out.println(a.equals(a));
+            datum = new Datum(2, 2, 2017);
+            
+            Personenwagen p = new Personenwagen("auto", datum, 18300, 5, a,b);
+            p.setBestuurder(b);
+            System.out.println(p.isIngezetene(a));
+            System.out.println(p.isIngezetene(b));
+            System.out.println(p.getIngezetenen().size());
+            
+            System.out.println(p);
 //            for (Voertuig voertuig : lijst){
 //                System.out.println(voertuig.getMerk() + ": " + voertuig.getIngezetenen());
 //            }
-//            
-//        } catch (IllegalArgumentException e){
+            
+        } catch (IllegalArgumentException e){
+            System.err.println(e.getMessage());
+//        } catch (MensException e){
 //            System.err.println(e.getMessage());
-////        } catch (MensException e){
-////            System.err.println(e.getMessage());
-//        }catch (DatumException e){
-//            System.err.println(e.getMessage());
-//        } catch (Exception e){
-//            System.out.println(e.toString());
-//        }
+        }catch (DatumException e){
+            System.err.println(e.getMessage());
+        } catch (Exception e){
+            System.out.println(e.toString());
+        }
 //        int[] a = new int[2];
 //        a[0] = 1;
 //        System.out.println(a.length);
