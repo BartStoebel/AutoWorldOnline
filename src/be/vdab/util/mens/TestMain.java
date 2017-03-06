@@ -10,6 +10,7 @@ import be.vdab.util.DatumException;
 import static be.vdab.util.mens.Rijbewijs.*; 
 import be.vdab.voertuigen.Personenwagen;
 import be.vdab.voertuigen.Voertuig;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -35,7 +36,7 @@ public class TestMain {
             //System.out.println(a.equals(a));
             datum = new Datum(2, 2, 2017);
             
-            Personenwagen p = new Personenwagen("auto", datum, 18300, 5, a,b);
+            Personenwagen p = new Personenwagen("auto", datum, 18300, 3, Color.BLUE, a,b);
             p.setBestuurder(b);
             System.out.println(p.isIngezetene(a));
             System.out.println(p.isIngezetene(b));

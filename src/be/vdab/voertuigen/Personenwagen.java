@@ -8,25 +8,27 @@ package be.vdab.voertuigen;
 import be.vdab.util.Datum;
 import be.vdab.util.mens.Mens;
 import be.vdab.util.mens.Rijbewijs;
-import java.util.Arrays;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.awt.Color;
+import java.io.Serializable;
 
 /**
  *
  * @author Vinnie
  */
-public class Personenwagen extends Voertuig{
+public class Personenwagen extends Voertuig implements Serializable{
     
     private final int MAX_ZITPLAATSEN = 8;
     private static final Rijbewijs[] TOEGESTAAN_RIJBEWIJS = new Rijbewijs[]{Rijbewijs.B, Rijbewijs.BE};
     
+    private Color kleur;
+
     
-    public Personenwagen(String merk, Datum DatumEersteIngebruikname, int aankoopprijs,
-            int zitplaatsen, Mens bestuurder, Mens...passagiers){
-        
+    
+    public Personenwagen( String merk, Datum DatumEersteIngebruikname, int aankoopprijs,
+            int zitplaatsen, Color kleur, Mens bestuurder, Mens...passagiers){
         super(merk, DatumEersteIngebruikname, aankoopprijs, zitplaatsen, bestuurder, passagiers);
-            
+        this.kleur = Color.BLUE;
+        
 
     }
     
@@ -39,4 +41,12 @@ public class Personenwagen extends Voertuig{
         return MAX_ZITPLAATSEN;
     }
     
+    
+    public Color getKleur() {
+        return kleur;
+    }
+
+    public void setKleur(Color kleur) {
+        this.kleur = kleur;
+    }
 }

@@ -123,5 +123,4 @@ public class Mens implements Serializable, Comparable<Mens>{
     public void setRijbewijs(Set<Rijbewijs> rijbewijs) {
         this.rijbewijs = rijbewijs;
     }
-    
 }

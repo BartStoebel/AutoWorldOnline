@@ -34,7 +34,7 @@ public abstract class Voertuig implements Comparable<Voertuig>, Serializable{
     
     private Mens bestuurder;
     
-    private Rijbewijs[] rijbewijs;
+    //private Rijbewijs[] rijbewijs;
     
     //Nummerplaat wordt aangemaakt:
     private final Nummerplaat NUMMERPLAAT;
@@ -57,7 +57,8 @@ public abstract class Voertuig implements Comparable<Voertuig>, Serializable{
         if (zitplaatsen > 0 && zitplaatsen <= getMAX_ZITPLAATSEN()){
             this.zitplaatsen = zitplaatsen;
         }else {
-            throw new IllegalArgumentException ("Aantal zitplaatsen kan niet negatief zijn.");
+            throw new IllegalArgumentException ("Aantal zitplaatsen moet groter "
+                    + "zijn dan 0 en kleiner of gelijk aan " + getMAX_ZITPLAATSEN());
         }
         try{
             setBestuurder(bestuurder);
@@ -130,7 +131,7 @@ public abstract class Voertuig implements Comparable<Voertuig>, Serializable{
      * @param mens
      * @return true indien hij dit voertuig mag besturen!
      */
-    private boolean controleerBestuurderGeldigRijbewijs(Mens mens){
+    public  boolean controleerBestuurderGeldigRijbewijs(Mens mens){
         boolean bestuurderOK = false;
         List<Rijbewijs> lijst = Arrays.asList(getToegestaneRijbewijzen());
         for (Rijbewijs r : mens.getRijbewijs()){
@@ -276,9 +277,6 @@ public abstract class Voertuig implements Comparable<Voertuig>, Serializable{
         return zitplaatsen - getIngezetenen().size() ;  
     }
 
-
-
-          
     public static Comparator<Voertuig> getAankoopprijsComparator() {
         return vergelijkAankoopprijs;
     }
@@ -293,7 +291,6 @@ public abstract class Voertuig implements Comparable<Voertuig>, Serializable{
             return false;
         }
     }
-    
     
     private static class VergelijkMerk implements Comparator<Voertuig> {
 
