@@ -8,6 +8,7 @@ package be.vdab.voertuigen;
 import be.vdab.util.Datum;
 import be.vdab.util.mens.Mens;
 import be.vdab.util.mens.Rijbewijs;
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -16,7 +17,7 @@ import java.util.Set;
  *
  * @author Vinnie
  */
-public class Personenwagen extends Voertuig{
+public class Personenwagen extends Voertuig implements Serializable{
     
     private final int MAX_ZITPLAATSEN = 8;
     private static final Rijbewijs[] TOEGESTAAN_RIJBEWIJS = new Rijbewijs[]{Rijbewijs.B, Rijbewijs.BE};

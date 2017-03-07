@@ -9,15 +9,7 @@ package be.vdab.util;
  *
  * @author Vinnie
  */
-public enum Maat {
-    centimeter (1), decimeter (10), meter (100);
-    
-    private final double MAAT;
-    
-    Maat(double maat){
-        this.MAAT = maat;
-    }
-    public double getMaat(){
-        return MAAT;
-    }
+public interface Laadbaar {
+    abstract Volume getLaadvolume();
+    abstract void setLaadvolume(Volume vol);
 }

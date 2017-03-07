@@ -5,13 +5,6 @@
  */
 package be.vdab.util.mens;
 
-import be.vdab.util.Datum;
-import be.vdab.util.DatumException;
-import static be.vdab.util.mens.Rijbewijs.*; 
-import be.vdab.voertuigen.Voertuig;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 /**
  *
  * @author Vinnie
@@ -22,7 +15,19 @@ public class TestMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+//      Volume v0 = new Volume(100, 100, 100, Maat.centimeter);
+//      Volume v1 = new Volume(10, 10, 10, Maat.decimeter);
+//      Volume v2 = new Volume(1, 1, 1, Maat.meter);
+//      System.out.println("Volume v0: " + v0.getVolume());
+//      System.out.println("Volume v1: " + v1.getVolume());
+//      System.out.println("Volume v2: " + v2.getVolume());
+//      
+//      System.out.println("Volume v0 compare to v2: " + v0.compareTo(v2));
+      
+//      assertTrue(v2.compareTo(v0) > 0);
+//      assertTrue(v0.compareTo(v2) < 0);
+//      assertTrue(v2.compareTo(v1) > 0);
+//      assertTrue(v1.compareTo(v2) < 0);
         
 //        
 //        Datum datum;
