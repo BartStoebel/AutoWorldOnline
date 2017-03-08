@@ -11,7 +11,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author Vinnie
+ * @author Bart Stoebel
  */
 public class Boekentas implements Laadbaar, Serializable {
     
