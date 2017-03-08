@@ -21,8 +21,6 @@ public class Personenwagen extends Voertuig implements Serializable{
     private static final Rijbewijs[] TOEGESTAAN_RIJBEWIJS = new Rijbewijs[]{Rijbewijs.B, Rijbewijs.BE};
     
     private Color kleur;
-
-    
     
     public Personenwagen( String merk, Datum DatumEersteIngebruikname, int aankoopprijs,
             int zitplaatsen, Color kleur, Mens bestuurder, Mens...passagiers){
@@ -38,10 +36,10 @@ public class Personenwagen extends Voertuig implements Serializable{
     protected int getMAX_ZITPLAATSEN(){
         return MAX_ZITPLAATSEN;
     }
-//nog af te werken!!
+
     @Override
     public String toString() {
-        return "Personenwagen{" + "MAX_ZITPLAATSEN=" + MAX_ZITPLAATSEN + ", kleur=" + kleur + '}';
+        return super.toString() + " " + super.getZitplaatsen();
     }
     
     

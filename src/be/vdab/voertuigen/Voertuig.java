@@ -111,7 +111,7 @@ public abstract class Voertuig implements Comparable<Voertuig>, Serializable{
             namenPassagiers = namenPassagiers.substring(2, namenPassagiers.length());
             namenPassagiers = getBestuurder().toString() + " [" + namenPassagiers + "]";
         } else {
-            namenPassagiers = getBestuurder().toString();
+            namenPassagiers = getBestuurder().toString() + "";
         }
         
         return NUMMERPLAAT.getPLAAT() + " " + getMerk() + " " + DatumEersteIngebruikname.toString()
