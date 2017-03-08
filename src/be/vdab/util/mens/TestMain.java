@@ -7,13 +7,13 @@ package be.vdab.util.mens;
 
 import be.vdab.util.Datum;
 import be.vdab.util.DatumException;
+import be.vdab.util.Maat;
+import be.vdab.util.Volume;
 import static be.vdab.util.mens.Rijbewijs.*; 
 import be.vdab.voertuigen.Personenwagen;
 import be.vdab.voertuigen.Voertuig;
+import be.vdab.voertuigen.Vrachtwagen;
 import java.awt.Color;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 /**
  *
  * @author Vinnie
@@ -47,17 +47,19 @@ public class TestMain {
             //System.out.println(a);
             //System.out.println(a.equals(a));
             datum = new Datum(2, 2, 2017);
+            Volume volume = new Volume(20, 20, 20, Maat.meter);
             
-            Personenwagen p = new Personenwagen("auto", datum, 18300, 8, Color.BLUE, a);
-            Personenwagen pw = p;
+            Voertuig p = new Vrachtwagen("Mercedes", datum, 18300, 3 , volume, 200, 3 , a);
+            Voertuig pw = new Personenwagen("auto", datum, 2000, 1, Color.blue, b);
+            System.out.println(p.getZitplaatsen());
             System.out.println(p);
-            System.out.println();
-            p.setBestuurder(b);
-            System.out.println(p.isIngezetene(a));
-            System.out.println(p.isIngezetene(b));
-            System.out.println(p.getIngezetenen().size());
-            
-            System.out.println(p);
+//            System.out.println();
+//            p.setBestuurder(b);
+//            System.out.println(p.isIngezetene(a));
+//            System.out.println(p.isIngezetene(b));
+//            System.out.println(p.getIngezetenen().size());
+//            
+//            System.out.println(p);
 //            for (Voertuig voertuig : lijst){
 //                System.out.println(voertuig.getMerk() + ": " + voertuig.getIngezetenen());
 //            }
