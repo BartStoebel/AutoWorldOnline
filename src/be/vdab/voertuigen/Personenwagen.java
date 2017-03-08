@@ -27,9 +27,7 @@ public class Personenwagen extends Voertuig implements Serializable{
     public Personenwagen( String merk, Datum DatumEersteIngebruikname, int aankoopprijs,
             int zitplaatsen, Color kleur, Mens bestuurder, Mens...passagiers){
         super(merk, DatumEersteIngebruikname, aankoopprijs, zitplaatsen, bestuurder, passagiers);
-        this.kleur = Color.BLUE;
-        
-
+        this.kleur = kleur;
     }
     
     @Override
@@ -39,6 +37,11 @@ public class Personenwagen extends Voertuig implements Serializable{
     @Override
     protected int getMAX_ZITPLAATSEN(){
         return MAX_ZITPLAATSEN;
+    }
+//nog af te werken!!
+    @Override
+    public String toString() {
+        return "Personenwagen{" + "MAX_ZITPLAATSEN=" + MAX_ZITPLAATSEN + ", kleur=" + kleur + '}';
     }
     
     
