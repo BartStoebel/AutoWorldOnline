@@ -10,7 +10,7 @@ import java.util.Objects;
 
 /**
  *
- * @author Vinnie
+ * @author Bart Stoebel
  */
 public class Volume implements Comparable<Volume>, Serializable{
     private final int hoogte;
