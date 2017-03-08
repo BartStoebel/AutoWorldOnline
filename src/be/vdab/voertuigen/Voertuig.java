@@ -293,14 +293,14 @@ public abstract class Voertuig implements Comparable<Voertuig>, Serializable{
         }
     }
     
-    private static class VergelijkMerk implements Comparator<Voertuig> {
+    private static class VergelijkMerk implements Comparator<Voertuig>,Serializable {
 
         @Override
         public int compare(Voertuig o1, Voertuig o2) {
             return o1.getMerk().toUpperCase().compareTo(o2.getMerk().toUpperCase());
         }
     }
-    private static class VergelijkAankoopprijs implements Comparator<Voertuig> {
+    private static class VergelijkAankoopprijs implements Comparator<Voertuig>,Serializable {
 
         @Override
         public int compare(Voertuig o1, Voertuig o2) {
