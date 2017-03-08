@@ -20,6 +20,8 @@ public class Vrachtwagen extends Voertuig implements Laadbaar{
     private Volume volume;
     private int maximaalToegelatenMassa;
     private int aantalAssen;
+    
+    private static final Rijbewijs[] TOEGESTAAN_RIJBEWIJS = new Rijbewijs[]{Rijbewijs.C, Rijbewijs.CE};
 
     private final int MAX_ZITPLAATSEN = 3;
 
@@ -38,7 +40,7 @@ public class Vrachtwagen extends Voertuig implements Laadbaar{
             throw new IllegalArgumentException("Het aantal assen kan niet "
                 + "kleiner zijn dan 2");
         }
-        this.volume = volume;
+        setLaadvolume(volume);
         this.maximaalToegelatenMassa = maximaalToegelatenMassa;
         this.aantalAssen = aantalAssen;
     }
@@ -49,13 +51,7 @@ public class Vrachtwagen extends Voertuig implements Laadbaar{
         string = string + " assen:" + aantalAssen + ", maximaal toegelaten massa:" + 
                 maximaalToegelatenMassa + ", laadvolume:" + volume;
         return string;
-//                String.format("%s %s %s %s %s assen:%s, maximaal toegelaten massa:"
-//                + "%s, laadvolume:%s",  nummerplaatString, merkString, datumString,
-//                aankoopprijsString, "Ammelie(B, B+E, C, C+E)", AA1_STRING, 
-//                MTM1_STRING, VOLUME10_STRING);
     }
-    
-    
     
     //Overrided methods van Voertuig:
     @Override
@@ -65,7 +61,7 @@ public class Vrachtwagen extends Voertuig implements Laadbaar{
 
     @Override
     protected Rijbewijs[] getToegestaneRijbewijzen() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return TOEGESTAAN_RIJBEWIJS;
     }
 
     //Overrided methods van Laadbaar
@@ -75,12 +71,8 @@ public class Vrachtwagen extends Voertuig implements Laadbaar{
     }
 
     @Override
-    public void setLaadvolume(Volume vol) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public Volume getVolume() {
-        return volume;
+    public final void setLaadvolume(Volume vol) {
+        this.volume = vol;
     }
 
     public int getMaximaalToegelatenMassa() {
@@ -91,10 +83,6 @@ public class Vrachtwagen extends Voertuig implements Laadbaar{
         return aantalAssen;
     }
     
-     public void setVolume(Volume volume) {
-        this.volume = volume;
-    }
-
     public void setMaximaalToegelatenMassa(int maximaalToegelatenMassa) {
         this.maximaalToegelatenMassa = maximaalToegelatenMassa;
     }
@@ -102,6 +90,5 @@ public class Vrachtwagen extends Voertuig implements Laadbaar{
     public void setAantalAssen(int aantalAssen) {
         this.aantalAssen = aantalAssen;
     }
-    
     
 }
