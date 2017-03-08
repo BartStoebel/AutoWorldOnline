@@ -48,8 +48,9 @@ public class TestMain {
             //System.out.println(a.equals(a));
             datum = new Datum(2, 2, 2017);
             
-            Personenwagen p = new Personenwagen("auto", datum, 18300, 3, Color.BLUE, a,b);
-            System.out.println(p.toString());
+            Personenwagen p = new Personenwagen("auto", datum, 18300, 8, Color.BLUE, a);
+            Personenwagen pw = p;
+            System.out.println(p);
             System.out.println();
             p.setBestuurder(b);
             System.out.println(p.isIngezetene(a));

@@ -26,6 +26,8 @@ import java.util.TreeSet;
  * @author Vinnie
  */
 public abstract class Voertuig implements Comparable<Voertuig>, Serializable{
+    private static final long serialVersionUID = 1L;
+    
     private String merk;
     private Datum DatumEersteIngebruikname;
     private int aankoopprijs;

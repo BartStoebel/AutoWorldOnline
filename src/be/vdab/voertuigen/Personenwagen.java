@@ -9,13 +9,12 @@ import be.vdab.util.Datum;
 import be.vdab.util.mens.Mens;
 import be.vdab.util.mens.Rijbewijs;
 import java.awt.Color;
-import java.io.Serializable;
 
 /**
  *
  * @author Vinnie
  */
-public class Personenwagen extends Voertuig implements Serializable{
+public class Personenwagen extends Voertuig {
     
     private final int MAX_ZITPLAATSEN = 8;
     private static final Rijbewijs[] TOEGESTAAN_RIJBEWIJS = new Rijbewijs[]{Rijbewijs.B, Rijbewijs.BE};

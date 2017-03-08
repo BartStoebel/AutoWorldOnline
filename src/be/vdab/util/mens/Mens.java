@@ -18,6 +18,8 @@ import java.util.TreeSet;
  * @author Vinnie
  */
 public class Mens implements Serializable, Comparable<Mens>{
+    private static final long serialVersionUID = 1L;
+    
     private String naam;
     private Set<Rijbewijs> rijbewijs;
     

@@ -13,6 +13,8 @@ import java.util.Objects;
  * @author Bart Stoebel
  */
 public class Volume implements Comparable<Volume>, Serializable{
+    private static final long serialVersionUID = 1L;
+    
     private final int hoogte;
     private final int breedte; 
     private final int diepte;
@@ -94,14 +96,26 @@ public class Volume implements Comparable<Volume>, Serializable{
         return (long)(hoogte * breedte * diepte *(long)Math.pow(this.maat.getMaat(),3));
     }
 
+    /**
+     * in de maat beschreven in getMaat()
+     * @return 
+     */
     public int getHoogte() {
         return hoogte;
     }
 
+    /**
+     * in de maat beschreven in getMaat()
+     * @return 
+     */
     public int getBreedte() {
         return breedte;
     }
 
+    /**
+     * in de maat beschreven in getMaat()
+     * @return 
+     */
     public int getDiepte() {
         return diepte;
     }

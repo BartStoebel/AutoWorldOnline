@@ -14,6 +14,7 @@ import java.util.Objects;
  */  
 public class Nummerplaat implements Serializable, Comparable<Nummerplaat>{
     private static final long serialVersionUID = 1L;
+    
     private final String PLAAT;
     
     /**

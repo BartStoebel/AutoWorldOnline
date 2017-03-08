@@ -16,26 +16,32 @@ import java.io.Serializable;
  *
  * @author Vinnie
  */
-public class Pickup extends Personenwagen implements Laadbaar, Serializable{
+public class Pickup extends Personenwagen implements Laadbaar{
     
     private Volume volume;
 
-    public Pickup(String merk, Datum DatumEersteIngebruikname, int aankoopprijs, int zitplaatsen, Color kleur, Mens bestuurder, Mens... passagiers) {
-        super(merk, DatumEersteIngebruikname, aankoopprijs, zitplaatsen, kleur, bestuurder, passagiers);
-        
+    public Pickup(String merk, Datum DatumEersteIngebruikname, int aankoopprijs,
+            int zitplaatsen, Color kleur, Volume volume, Mens bestuurder, 
+            Mens... passagiers) {
+        super(merk, DatumEersteIngebruikname, aankoopprijs, zitplaatsen, kleur, 
+                bestuurder, passagiers);
+        setLaadvolume(volume);
     }
 
-    
+    @Override
+    public String toString() {
+        return super.toString() + " " + volume;
+    }
     
     //Overrided methods van interface Laadbaar
     @Override
     public Volume getLaadvolume() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.volume;
     }
 
     @Override
-    public void setLaadvolume(Volume vol) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public final void setLaadvolume(Volume vol) {
+        this.volume = vol;
     }
     
     
