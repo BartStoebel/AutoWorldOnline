@@ -92,12 +92,10 @@ public class TestMain {
             }  catch (IOException e){
                 System.err.println(e.getMessage());
             }
-            
 //            Write write = new Write(setMerk);
 //            Thread thread = new Thread(write);
 //            //thread.sleep(4000);
 //            thread.run();
-            
            
             try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));){
                 Set<Voertuig> setMerk2 = (Set<Voertuig>)ois.readObject();
@@ -105,11 +103,6 @@ public class TestMain {
                 System.out.println("// Na import ...");
                 setMerk2.stream().forEach(e->System.out.println(e));
             }
-            
-
-           
-            
-            
         } catch (IllegalArgumentException e){
             System.err.println(e.getMessage());
         } catch (MensException e){
@@ -123,9 +116,8 @@ public class TestMain {
         }
     }
     
-    
-    
 }
+//Uiteindelijk niet gebruikt ...
  class Write implements Runnable{
     
     Set <Voertuig> setMerk;
@@ -142,5 +134,4 @@ public class TestMain {
                 System.err.println(e.getMessage());
             }
     }
-    
 }
