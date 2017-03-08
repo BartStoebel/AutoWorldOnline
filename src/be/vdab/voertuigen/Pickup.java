@@ -9,6 +9,7 @@ import be.vdab.util.Datum;
 import be.vdab.util.Laadbaar;
 import be.vdab.util.Volume;
 import be.vdab.util.mens.Mens;
+import java.awt.Color;
 import java.io.Serializable;
 
 /**
@@ -19,8 +20,8 @@ public class Pickup extends Personenwagen implements Laadbaar, Serializable{
     
     private Volume volume;
 
-    public Pickup(String merk, Datum DatumEersteIngebruikname, int aankoopprijs, int zitplaatsen, Mens bestuurder, Mens... passagiers) {
-        super(merk, DatumEersteIngebruikname, aankoopprijs, zitplaatsen, bestuurder, passagiers);
+    public Pickup(String merk, Datum DatumEersteIngebruikname, int aankoopprijs, int zitplaatsen, Color kleur, Mens bestuurder, Mens... passagiers) {
+        super(merk, DatumEersteIngebruikname, aankoopprijs, zitplaatsen, kleur, bestuurder, passagiers);
         
     }
 

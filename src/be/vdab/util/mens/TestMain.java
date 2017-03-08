@@ -40,34 +40,34 @@ public class TestMain {
         
         
         Datum datum;
-        try{
-            Mens a = new Mens("Ammelie", B, BE, C, CE);
-            Mens b = new Mens("Eva",A, B);
-            Mens c = new Mens ("Ruben");
-            //System.out.println(a);
-            //System.out.println(a.equals(a));
-            datum = new Datum(2, 2, 2017);
-            
-            Personenwagen p = new Personenwagen("auto", datum, 18300, 3, Color.BLUE, a,b);
-            p.setBestuurder(b);
-            System.out.println(p.isIngezetene(a));
-            System.out.println(p.isIngezetene(b));
-            System.out.println(p.getIngezetenen().size());
-            
-            System.out.println(p);
-//            for (Voertuig voertuig : lijst){
-//                System.out.println(voertuig.getMerk() + ": " + voertuig.getIngezetenen());
-//            }
-            
-        } catch (IllegalArgumentException e){
-            System.err.println(e.getMessage());
-//        } catch (MensException e){
+//        try{
+//            Mens a = new Mens("Ammelie", B, BE, C, CE);
+//            Mens b = new Mens("Eva",A, B);
+//            Mens c = new Mens ("Ruben");
+//            //System.out.println(a);
+//            //System.out.println(a.equals(a));
+//            datum = new Datum(2, 2, 2017);
+//            
+//            Personenwagen p = new Personenwagen("auto", datum, 18300, 3, Color.BLUE, a,b);
+//            p.setBestuurder(b);
+//            System.out.println(p.isIngezetene(a));
+//            System.out.println(p.isIngezetene(b));
+//            System.out.println(p.getIngezetenen().size());
+//            
+//            System.out.println(p);
+////            for (Voertuig voertuig : lijst){
+////                System.out.println(voertuig.getMerk() + ": " + voertuig.getIngezetenen());
+////            }
+//            
+//        } catch (IllegalArgumentException e){
 //            System.err.println(e.getMessage());
-        }catch (DatumException e){
-            System.err.println(e.getMessage());
-        } catch (Exception e){
-            System.out.println(e.toString());
-        }
+////        } catch (MensException e){
+////            System.err.println(e.getMessage());
+//        }catch (DatumException e){
+//            System.err.println(e.getMessage());
+//        } catch (Exception e){
+//            System.out.println(e.toString());
+//        }
 //        int[] a = new int[2];
 //        a[0] = 1;
 //        System.out.println(a.length);

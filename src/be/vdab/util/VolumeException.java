@@ -9,7 +9,7 @@ package be.vdab.util;
  *
  * @author Bart.Stoebel
  */
-public class VolumeException extends Exception{
+public class VolumeException extends RuntimeException{
     public VolumeException(){
         
     }
