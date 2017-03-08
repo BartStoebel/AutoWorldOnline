@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package be.vdab.util.mens;
+package be.vdab.main;
 
 import be.vdab.util.Datum;
 import be.vdab.util.DatumException;
 import be.vdab.util.Maat;
 import be.vdab.util.Volume;
+import be.vdab.util.mens.Mens;
+import be.vdab.util.mens.MensException;
 import static be.vdab.util.mens.Rijbewijs.*; 
 import be.vdab.voertuigen.Personenwagen;
 import be.vdab.voertuigen.Voertuig;
